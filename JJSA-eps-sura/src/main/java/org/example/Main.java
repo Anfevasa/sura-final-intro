@@ -18,13 +18,10 @@ public class Main {
         Double[] salariosEspecialistas = new Double[100];
         String[] fechasIngresosEspecialistas = new String[100];
 
-
         Integer horasEspecialista=0;
         Integer precioHoraEspecialista=150000;
         Double deduccionSalarioEspecialista=0.04;
         Integer opcionesPaciente=0;
-
-
 
         //variables colores:
         String azul="\033[0;34m";
@@ -52,9 +49,9 @@ public class Main {
 
                     do {
                         System.out.println(cyan+"---------- Menú administrador ----------");
-                        System.out.println(cyan+"----"+blanco+" 1. Agregar nuevo especialista"+cyan+ "------");
-                        System.out.println(cyan+"----"+blanco+" 2. Ver datos de especialistas"+cyan+"------");
-                        System.out.println(cyan+"----"+blanco+" 3. Buscar especialista por CC "+cyan+"-----");
+                        System.out.println(cyan+"----"+blanco+" 1. Agregar nuevo especialista  "+cyan+ "----");
+                        System.out.println(cyan+"----"+blanco+" 2. Ver datos de especialistas  "+cyan+"----");
+                        System.out.println(cyan+"----"+blanco+" 3. Buscar especialista por CC  "+cyan+"----");
                         System.out.println(cyan+"----"+blanco+" 4. Retirar especialista por CC "+cyan+"----");
                         System.out.println(cyan+"----"+rojo+" 5. SALIR                       "+cyan+"----");
                         System.out.println(cyan+"----------------------------------------");
@@ -83,7 +80,7 @@ public class Main {
                                 break;
                             case 2:
                                 System.out.println(cyan+"---- "+azul+"Base de datos especialistas"+cyan+" ----");
-                                System.out.println(blanco+"+#+nombre+cédula+fecha ingreso");
+                                System.out.println(blanco+"|#|nombre|cédula|salario|fecha ingreso| ");
                                 for (int i=0; i<nombresEspecialistas.length;i++){
                                     if (nombresEspecialistas[i] !=null) {
                                         System.out.println(blanco+"|"+blanco+(i+1)+blanco+"|"+azul+ nombresEspecialistas[i]+blanco+"|"+azul+cedulasEspecialistas[i]+blanco+"|"+azul+salariosEspecialistas[i]+blanco+"|"+azul+fechasIngresosEspecialistas[i]+blanco+"|");
@@ -95,43 +92,52 @@ public class Main {
                                 break;
                             case 3:
                                 System.out.println(cyan+"---- Base de datos especialista ----");
-                                System.out.print(morado+"Digite el número de cédula del especialista que desea consultar: ");
+                                System.out.print(morado+"Digite el número de cédula del especialista que desea CONSULTAR: ");
                                 cedulaConsulta = teclado.nextLine();
+                                Boolean encontradoB = false;
                                 for (int i=0; i<cedulasEspecialistas.length;i++){
                                     if (cedulaConsulta.equals(cedulasEspecialistas[i])){
+                                        encontradoB=true;
                                         System.out.println(cyan+"Cédula: "+blanco+ cedulasEspecialistas[i]);
                                         System.out.println(cyan+"Nombre: "+blanco+ nombresEspecialistas[i]);
                                         System.out.println(cyan+"Especialidad: "+blanco+ especialidadesEspecialistas[i]);
-                                        System.out.println(cyan+"Salario: "+blanco+ salariosEspecialistas[i]);
+                                        System.out.println(cyan+"Salario: "+blanco+"$"+ salariosEspecialistas[i]);
                                         System.out.println(cyan+"Fecha de ingreso: "+blanco+ fechasIngresosEspecialistas[i]);
                                         System.out.println(morado+"Oprima enter para continuar");
                                         teclado.nextLine();
                                         break;
                                     }
                                 }
-                                System.out.println(cyan+"No se encuentra especialista con esta cédula.");
+                                if (!encontradoB){
+                                    System.out.println(cyan+"No se encuentra especialista con esta cédula.");
+                                }
                                 break;
                             case 4:
                                 System.out.println(cyan+"---- Base de datos especialista ----");
-                                System.out.print(morado+"Digite el número de cédula del especialista que desea consultar: ");
+                                System.out.print(morado+"Digite el número de cédula del especialista que desea ELIMINAR: ");
                                 cedulaConsulta = teclado.nextLine();
+
+                                Boolean encontradoE = false;
                                 for (int i=0; i<cedulasEspecialistas.length;i++){
                                     if (cedulaConsulta.equals(cedulasEspecialistas[i])){
                                         System.out.print("Digite 'true' para confirmar: ");
+                                        encontradoE=true;
                                         if(teclado.nextBoolean()) {
                                             nombresEspecialistas[i] = null;
                                             cedulasEspecialistas[i] = null;
                                             especialidadesEspecialistas[i] = null;
                                             salariosEspecialistas[i] = null;
                                             fechasIngresosEspecialistas[i] = null;
-                                            System.out.println(rojo+ "ELIMINADO."+morado+" Oprima enter para continuar");
+                                            System.out.print(rojo+ "ELIMINADO."+morado+" Oprima enter para continuar");
+                                            teclado.nextLine();
                                             teclado.nextLine();
                                             break;
                                         }
                                     }
                                 }
-                                //arreglar con validación
-                                System.out.println(cyan+"No se encuentra especialista con esta cédula.");
+                                if (!encontradoE) {
+                                    System.out.println(cyan + "No se encuentra especialista con esta cédula.");
+                                }
                                 break;
                             case 5:
                                 System.out.println(cyan+"Redirigiendo a perfiles");
@@ -139,75 +145,87 @@ public class Main {
                             default:
                                 System.out.println(rojo+"Opción inválida, intente de nuevo.");
                                 break;
-
                         }
                     }while(opcionMenuAdmin!=5);
-
                     break;
-
                 case 2:
-                    // SEEB
-                    System.out.println(azul+"opción ESPECIALISTA en construcción");
-                    teclado.nextLine();
-
                     Integer opcionMenuEspecialista=0;
 
-                    System.out.println(morado+"Digita tu opcion de especialista ");
-                    System.out.println(blanco+"1. reportar numero de horas trabajadas durante el mes ");
-                    System.out.println(blanco+"2. consultar salario mensual ");
-                    System.out.println(blanco+"3. consultar la base de datos de los epecialistas");
-                    opcionMenuEspecialista= teclado.nextInt();
+                    do {
+                        System.out.println(cyan+"----------------------- Menú especialista -----------------------");
+                        System.out.println(cyan+"----"+blanco+" 1. Reportar numero de horas trabajadas durante el mes "+cyan+"------");
+                        System.out.println(cyan+"----"+blanco+" 2. Consultar salario mensual                          "+cyan+"------");
+                        System.out.println(cyan+"----"+blanco+" 3. Consultar la base de datos de los epecialistas     "+cyan+"------");
+                        System.out.println(cyan+"----"+rojo+" 4. SALIR                                              "+cyan+"------");
+                        System.out.println(cyan+"-----------------------------------------------------------------");
+                        System.out.print(morado+"Digite el número de su opción: ");
 
-                    switch (opcionMenuEspecialista){
-                        case 1:
-                            System.out.println(morado+"Ingresa tu numero de horas trabajadas durante el ultimo mes");
-                            horasEspecialista= teclado.nextInt();
-                            break;
-                        case 2:
-                            Integer salarioEspecialista=horasEspecialista*precioHoraEspecialista;
-                            Double descuentoSalarioEspecialista=(salarioEspecialista*deduccionSalarioEspecialista);
-                            System.out.println(cyan+"tu salario del ultimo mes es: "+(salarioEspecialista-descuentoSalarioEspecialista));
-                            break;
-                        case 3:
-                            System.out.println(morado+"ver la base de datos de todos los especialistas");
-                            System.out.println(morado+"+ # + nombre + cédula + salario + fecha ingreso + ");
-                            for (int i=0; i<nombresEspecialistas.length;i++){
-                                if (nombresEspecialistas[i]==null){
+                        opcionMenuEspecialista= teclado.nextInt();
 
-                                }else{
-                                    System.out.println(blanco+"|"+(i+1)+blanco+"|"+azul+nombresEspecialistas[i]+blanco+"|"+azul+cedulasEspecialistas[i]+blanco+"|"+azul+fechasIngresosEspecialistas[i]);
+                        switch (opcionMenuEspecialista){
+                            case 1:
+                                System.out.print(morado+"Ingresa tu número de horas trabajadas durante el ultimo mes: ");
+                                horasEspecialista= teclado.nextInt();
+                                break;
+                            case 2:
+                                Integer salarioEspecialista=horasEspecialista*precioHoraEspecialista;
+                                Double descuentoSalarioEspecialista=(salarioEspecialista*deduccionSalarioEspecialista);
+                                System.out.println(cyan+"Tu salario del ultimo mes es: "+(salarioEspecialista-descuentoSalarioEspecialista));
+                                System.out.println(morado+"Oprima enter para continuar.");
+                                teclado.nextLine();
+                                teclado.nextLine();
+                                break;
+                            case 3:
+                                System.out.println(morado+"ver la base de datos de todos los especialistas");
+                                System.out.println(blanco+"|#|nombre|cédula|fecha ingreso| ");
+                                for (int i=0; i<nombresEspecialistas.length;i++){
+                                    if (nombresEspecialistas[i]!=null){
+                                        System.out.println(blanco+"|"+(i+1)+blanco+"|"+azul+nombresEspecialistas[i]+blanco+"|"+azul+cedulasEspecialistas[i]+blanco+"|"+azul+fechasIngresosEspecialistas[i]+blanco+"|");
+                                    }
                                 }
-                            }
-                            break;
-                        default:
-                            System.out.println(rojo+"Opcion invalida");
-                    }
+                                System.out.println(morado+"Oprima enter para continuar");
+                                teclado.nextLine();
+                                teclado.nextLine();
+                                break;
+                            case 4:
+                                System.out.println(cyan+"Redirigiendo a perfiles.");
+                                break;
+                            default:
+                                System.out.println(rojo+"Opción invalida.");
+                                break;
+                        }
+                    }while(opcionMenuEspecialista!=4);
 
                     break;
                 case 3:
-                    System.out.println(cyan+"opciones de pacinte");
-                    System.out.println(blanco+"1. ver base de datos de los especialistas");
-                    System.out.println(rojo+"2. salir");
-                    System.out.println(morado+"Ingrese su opcion");
-                    opcionesPaciente= teclado.nextInt();
+                    Integer opcionMenuPaciente = 0;
 
-                    switch (opcionesPaciente) {
-                        case 1:
-                            System.out.println(cyan + "ver la base de datos de todos los especialistas");
-                            System.out.println(blanco + "+ # + nombre + cédula + fecha ingreso + ");
-                            int i = 0;
+                    do {
+                        System.out.println(cyan+"----------------- Menú paciente  -----------------");
+                        System.out.println(cyan+"---"+blanco+" 1. Ver base de datos de los especialistas  "+cyan+"---");
+                        System.out.println(cyan+"---"+rojo+" 2. SALIR                                   "+cyan+"---");
+                        System.out.println(cyan+"--------------------------------------------------");
+                        System.out.print(morado+"Digite el número de su opción: ");
+                        opcionMenuPaciente= teclado.nextInt();
+
+                        switch (opcionMenuPaciente) {
+                            case 1:
+                                System.out.println(cyan + "Ver la base de datos de todos los especialistas.");
+                                System.out.println(blanco+"|#|nombre|cédula|fecha ingreso| ");
+                                int i = 0;
                                 for (i = 0; i < nombresEspecialistas.length; i++) {
-                                    if (nombresEspecialistas[i]==null){
-                                    }else{
-                                        System.out.println(blanco + "|" + (i + 1) + azul + blanco + "|" + azul + nombresEspecialistas[i] + blanco + "|" + azul + cedulasEspecialistas[i] + blanco + "|" + azul + fechasIngresosEspecialistas[i]);
+                                    if (nombresEspecialistas[i]!=null){
+                                        System.out.println(blanco + "|" + (i + 1) + azul + blanco + "|" + azul + nombresEspecialistas[i] + blanco + "|" + azul + cedulasEspecialistas[i] + blanco + "|" + azul + fechasIngresosEspecialistas[i]+blanco+"|");
                                     }
                                 }
-                            break;
-                        case 2:
-                            System.out.println(cyan + "vuelva pronto");
-                        default:
-                            System.out.println(rojo + "opcion invalida");
-                    }
+                                break;
+                            case 2:
+                                System.out.println(cyan + "Redirigiendo a perfiles.");
+                                break;
+                            default:
+                                System.out.println(rojo + "opcion invalida");
+                        }
+                    }while (opcionMenuPaciente!=2);
                     break;
                 case 4:
                     System.out.println(azul+"Gracias por usar nuestros servicios, vuelva pronto.");
@@ -216,13 +234,6 @@ public class Main {
                     System.out.println(rojo+"Opción inválida. Intente de nuevo");
                     break;
             }
-
-
-
-
         }while (opcionMenuPpl!=4);
-
-
-
     }
 }
