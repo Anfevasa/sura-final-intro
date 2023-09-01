@@ -8,9 +8,9 @@
   font-family: "Barlow", sans-serif;
 }
 
-header{
-    display: inline-block;
-    width: 100%;
+header {
+  display: inline-block;
+  width: 100%;
 }
 
 .nav {
@@ -31,22 +31,22 @@ header{
   font-weight: bold;
 }
 
-.log-in{
-    height: 60%;
-    padding: 0 50px;
-    font-weight: 700;
-    font-size: medium;
-    border: none;
-    border-radius: 5vh;
-    background-color: var(--azul-oscuro);
-    color: white;
+.log-in {
+  height: 60%;
+  padding: 0 50px;
+  font-weight: 700;
+  font-size: medium;
+  border: none;
+  border-radius: 5vh;
+  background-color: var(--azul-oscuro);
+  color: white;
 }
-.eps{
-    width: 100%;
-    height: 3vh;
-    background-color: var(--azul-claro);
+.eps {
+  width: 100%;
+  height: 3vh;
+  background-color: var(--azul-claro);
 }
-.eps p{
+.eps p {
   color: white;
   font-size: 2vh;
   font-weight: 700;
@@ -58,12 +58,13 @@ header{
   display: flex;
   justify-content: space-between;
   background-color: rgb(0, 51, 160);
-  
 }
-section{
-    background: transparent linear-gradient(180deg, #00000000 0%, #00000069 80%, #000000 100%) 0% 0% no-repeat padding-box;
-    mix-blend-mode: multiply;
-    opacity: 1;
+section {
+  background: transparent
+    linear-gradient(180deg, #00000000 0%, #00000069 80%, #000000 100%) 0% 0%
+    no-repeat padding-box;
+  mix-blend-mode: multiply;
+  opacity: 1;
 }
 
 .presentacion img {
@@ -94,7 +95,7 @@ section{
   width: 60%;
   display: flex;
   justify-content: center;
-  gap:5%;
+  gap: 5%;
   align-items: center;
   flex-direction: column;
   color: white;
@@ -114,7 +115,6 @@ main {
   position: relative;
   display: flex;
   margin: 20px;
-
 }
 
 main::before {
@@ -181,7 +181,7 @@ h2 {
   bottom: -25px;
   left: 10px;
 }
-.img-especial{
+.img-especial {
   bottom: -35px;
 }
 .img-paciente {
@@ -194,12 +194,12 @@ article span {
   z-index: 10;
   bottom: 10%;
   width: 60%;
+  border-radius: 20px;
   height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: white;
-  border-radius: 20px;
   color: var(--azul-oscuro);
   font-weight: 400;
 }
@@ -208,59 +208,58 @@ a {
   text-decoration: none;
 }
 
-
-.footer{
+.footer {
   background-color: var(--gris-claro);
   padding: 20px;
   display: flex;
 }
-.contacto{
+.contacto {
   width: 34%;
 }
 
-.footer h3{
+.footer h3 {
   color: var(--azul-oscuro);
   margin-bottom: 20px;
 }
-.footer form{
+.footer form {
   display: flex;
   flex-direction: column;
 }
-.footer label{
+.footer label {
   display: flex;
   justify-content: space-between;
   color: var(--azul-oscuro);
   margin-left: 10px;
 }
-.footer input{
+.footer input {
   width: 88%;
 }
 
-.input{
+.input {
   border: 1px solid var(--azul-oscuro);
 }
 
-.nosotros{
+.nosotros {
   width: 100%;
   display: flex;
   padding-left: 1vw;
 }
-.nosotros h3{
+.nosotros h3 {
   position: absolute;
 }
-.nosotros img{
+.nosotros img {
   width: 30%;
   object-fit: contain;
   position: relative;
 }
-.tarjetas-presentacion{
+.tarjetas-presentacion {
   width: 80%;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 
-.tarjetas-presentacion article{
+.tarjetas-presentacion article {
   border: 1px solid black;
   border-radius: 15px;
   margin: 25px;
@@ -270,31 +269,24 @@ a {
   padding: 10px;
   gap: 10px;
 }
-.tarjetas-presentacion article:hover{
+.tarjetas-presentacion article:hover {
   transform: scale(1.1);
 }
 
-.tarjetas-presentacion .foto-perfil{
+.tarjetas-presentacion .foto-perfil {
   width: 90%;
   border-radius: 50%;
 }
 
-.redes{
+.redes {
   width: 100%;
   display: flex;
   justify-content: center;
-  gap: 10px
+  gap: 10px;
 }
-.redes img{
+.redes img {
   width: 100%;
 }
- 
- 
-
-
-
-
-
 
 .flip-card {
   background-color: transparent;
@@ -319,7 +311,8 @@ a {
 }
 
 /* Position the front and back side */
-.flip-card-front, .flip-card-back {
+.flip-card-front,
+.flip-card-back {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -335,14 +328,50 @@ a {
   justify-content: center;
 }
 
-.flip-card-front img{
+.flip-card-front img {
   position: absolute;
 }
-
 
 /* Style the back side */
 .flip-card-back {
   background-color: var(--azul-oscuro);
   color: white;
   transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-around; */
+}
+
+.perfil-titulo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 20%;
+}
+
+.perfil-opciones{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly; 
+  height: 100%;
+}
+
+.perfil-opciones button{
+  width: 80%;
+  height: 30px;
+  border-radius: 15px;
+  border: 2px solid white;
+  color: white;
+  background-color: transparent;
+  font-weight: 300;
+}
+
+.perfil-opciones button:hover{
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+body{
+  overflow-x: hidden;
 }
