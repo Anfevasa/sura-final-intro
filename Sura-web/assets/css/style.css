@@ -13,7 +13,8 @@ header {
   width: 100%;
 }
 
-.nav, .opciones {
+.nav,
+.opciones {
   display: flex;
   justify-content: space-around;
   height: 10vh;
@@ -24,6 +25,7 @@ header {
 .nav img {
   height: 10vh;
   width: 10vw;
+  margin-left: 3vw;
 }
 
 .nav a {
@@ -243,7 +245,7 @@ a {
 .nosotros h3 {
   position: absolute;
 }
-.nosotros img {
+.logo-jjsa {
   width: 30%;
   object-fit: contain;
   position: relative;
@@ -259,7 +261,7 @@ a {
 .tarjetas-presentacion article {
   border: 1px solid black;
   border-radius: 15px;
-  margin: 25px;
+  margin: 1vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -271,7 +273,8 @@ a {
 }
 
 .tarjetas-presentacion .foto-perfil {
-  width: 90%;
+  width: 100%;
+  height: auto;
   border-radius: 50%;
 }
 
@@ -314,11 +317,11 @@ a {
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 /* Style the front side (fallback if image is missing) */
 .flip-card-front {
-  color: black;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -344,15 +347,15 @@ a {
   height: 20%;
 }
 
-.perfil-opciones{
+.perfil-opciones {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly; 
+  justify-content: space-evenly;
   height: 100%;
 }
 
-.perfil-opciones button{
+.perfil-opciones button {
   width: 80%;
   height: 30px;
   border-radius: 15px;
@@ -362,26 +365,50 @@ a {
   font-weight: 300;
 }
 
-.perfil-opciones button:hover{
+.perfil-opciones button:hover {
   transform: scale(1.1);
   cursor: pointer;
 }
 
-body{
+body {
   overflow-x: hidden;
 }
 
-@media (max-width: 900px){
-  .nav{
+@media (max-width: 900px) {
+  .nav {
     flex-direction: row-reverse;
     justify-content: space-between;
     padding-left: 20px;
     padding-right: 20px;
   }
-  .opciones{
-    display: none;
+  .opciones {
+    content-visibility: hidden;
+    width: 10vw;
+    left: 1%;
+    /* border: 1px solid red; */
+    position: absolute;
   }
-  .menu-icon{
+  .opciones button {
+    height: 5vw;
+    font-size: 22px;
+  }
+  .opciones:hover {
+    content-visibility: visible;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5vh;
+    height: auto;
+    width: fit-content;
+    top: 0vh;
+    left: 0;
+    background-color: white;
+    z-index: 40;
+    padding: 9vw;
+    font-size: 25px;
+    padding-top: 16vh;
+  }
+
+  .menu-icon {
     height: 6vh;
     display: flex;
     flex-direction: column;
@@ -394,27 +421,76 @@ body{
     border-radius: 0.5vh;
     background-color: var(--azul-oscuro);
   }
+
   .nav img {
     height: 5vh;
     width: auto;
   }
-  .presentacion{
+  .eps p {
+    margin-left: 82%;
+  }
+  .presentacion {
     height: 50vh;
   }
-  .tigre img{
+  .tigre img {
     transform: scale(1);
     left: 0px;
-    top: 100px;
+    top: 10%;
   }
-  .flip-card{
+  .flip-card {
     font-size: 10px;
   }
-  .flip-card button{
+  .flip-card button {
     height: max-content;
     margin: auto;
   }
-  .tigre-perfil{
+  .tigre-perfil {
     height: 15vw;
     bottom: -12.9px;
   }
 }
+
+.label-modal{
+  display: flex;
+  align-items: center;
+  padding: 15px 50px;
+  background-color: var(--azul-oscuro);
+  color: white;
+  width: fit-content;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 300ms ease;
+}
+#btn-modal{
+  display: none;
+}
+
+#btn-modal:checked ~ .contenedor-modal{
+  display: flex;
+}
+
+
+.contenedor-modal {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #00000038;
+}
+
+.contenido-modal{
+  border: 1px solid red;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  padding: 1%;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+

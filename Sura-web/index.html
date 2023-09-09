@@ -31,7 +31,7 @@
           <span></span>
           <span></span>
         </div>
-        </nav>
+      </nav>
       <div class="eps">
         <p>EPS</p>
       </div>
@@ -74,6 +74,7 @@
                 <button>Ver especialistas</button>
                 <button>Buscar especialista por cc</button>
                 <button>Eliminar especialista</button>
+                <!-- <label for="btn-modal">abrrrriiiiir</label> -->
               </div>
             </div>
           </div>
@@ -116,7 +117,7 @@
     </main>
     <footer class="footer">
       <div class="contacto">
-        <h3>Contáctanos</h3>
+        <h3><label for="btn-modal">Contáctanos</label></h3>
         <form action="">
           <label for="nombre"
             >Nombre: <input class="input" type="text" id="nombre"
@@ -133,7 +134,11 @@
       </div>
       <div class="nosotros">
         <h3>Nosotros</h3>
-        <img src="/assets/img/logo-jjsa.png" alt="logo jjsa" />
+        <img
+          src="/assets/img/logo-jjsa.png"
+          alt="logo jjsa"
+          class="logo-jjsa"
+        />
         <div class="tarjetas-presentacion">
           <article>
             <img
@@ -193,5 +198,15 @@
         </div>
       </div>
     </footer>
+    <div class="formulario-agregar-especialista">
+      <input type="checkbox" id="btn-modal">
+      <div class="contenedor-modal" for="boton-modal">
+          <div class="contenido-modal">
+              <h4>Formulario</h4>
+              <label for="btn-modal" class="label-modal"> Cerrar </label>
+              
+          </div>
+      </div>
+    </div>
   </body>
 </html>
